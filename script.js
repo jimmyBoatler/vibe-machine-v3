@@ -1,35 +1,36 @@
-const button = document.getElementById("coin-button");
-const output = document.getElementById("card-output");
-
-const vibeMessages = [
-  "You are not behind. You're off-grid on purpose.\nSerial: VMB-912",
-  "Somewhere out there, your name is still echoing in an empty mall.",
-  "Today you're a glitch in someone else’s timeline.\nThat's power.",
-  "Time is folding. Walk slowly.",
-  "Your signal is strong, but you’re underground.\nWait it out."
+const messages = [
+  "You’re already too late, but go anyway.",
+  "Ask the wrong question. Get the right answer.",
+  "You're not stuck. You're haunting this place.",
+  "Someone's watching — but they’re rooting for you.",
+  "Your mistake was the right direction in disguise.",
+  "This card is a refund. You’ll need it later.",
+  "Try again. Or don’t. The machine doesn’t care.",
+  "The message didn’t print. That *was* the message.",
+  "Quarter accepted. Fate declined.",
+  "You’re the main character in someone else’s dream."
 ];
 
-const refundMessages = [
-  "Coin rejected. Try again later.",
-  "Funds returned.\nNothing for you today.",
-  "The Machine made a noise, but no card came out.",
-  "You felt a spark. That was enough.",
-  "Refund issued.\nReason: ambient static."
-];
+const card = document.getElementById('card');
+const button = document.getElementById('coin-button');
 
-button.addEventListener("click", () => {
-  output.classList.remove("hidden");
+button.addEventListener('click', () => {
+  const chance = Math.random();
 
-  const roll = Math.random();
+  card.classList.remove('show', 'hidden');
+  card.style.opacity = 0;
 
-  if (roll < 0.6) {
-    const vibe = vibeMessages[Math.floor(Math.random() * vibeMessages.length)];
-    output.textContent = vibe;
-  } else if (roll < 0.9) {
-    const refund = refundMessages[Math.floor(Math.random() * refundMessages.length)];
-    output.textContent = refund;
-  } else {
-    output.textContent = "";
-    output.classList.add("hidden");
-  }
+  setTimeout(() => {
+    if (chance < 0.15) {
+      card.innerText = "REFUND ISSUED.";
+    } else if (chance < 0.25) {
+      card.innerText = "";
+    } else {
+      const message = messages[Math.floor(Math.random() * messages.length)];
+      card.innerText = message;
+    }
+
+    card.classList.remove('hidden');
+    setTimeout(() => card.classList.add('show'), 100);
+  }, 100);
 });
