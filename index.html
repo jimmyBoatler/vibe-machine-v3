@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Vibe Machine</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=OCR+A+Extended&family=Cinzel+Decorative&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="wrapper">
-    <h1 class="title">THE VIBE MACHINE</h1>
-    <div class="machine-box">
-      <div class="slot">🔮</div>
-      <button id="coin-button">Insert Coin</button>
-      <div id="card-output" class="card hidden"></div>
+  <div class="background">
+    <div class="machine">
+      <div class="screen">
+        <h1 class="title">THE VIBE MACHINE</h1>
+        <button id="coin-button">INSERT COIN</button>
+      </div>
+      <div class="slot"></div>
     </div>
+    <div id="card" class="card hidden"></div>
   </div>
   <script src="script.js"></script>
 </body>
